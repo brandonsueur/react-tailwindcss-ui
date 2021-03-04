@@ -1,6 +1,6 @@
 # react-tailwindcss-ui
 
-simple ui components with react.js and tailwindcss.
+simple ui components with react.js and tailwindcss. a silly reminder for me as soon as I start my projects.
 
 ### components produced
 
