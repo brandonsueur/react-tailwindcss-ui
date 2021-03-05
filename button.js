@@ -11,25 +11,33 @@ import classNames from "classnames";
  * @param {bool} disabled
  * @param {bool} loading
  * @param {className} className
+ * @param {bool} fullWidth
  */
 const Button = ({
   color,
   label,
   variant,
   icon,
+  size,
   disabled,
   loading,
   className,
+  fullWidth,
   ...restProps
 }) => {
   const isDisabled = disabled || loading;
   const colorWhite = color == "white" ? color : color + "-500";
+  const btnSizes = {
+    large: "text-sm py-5",
+    medium: "text-sm py-3",
+    small: "text-xs py-3"
+  };
 
   const btnVariants = {
     text: "font-bold text-sm outline-none focus:outline-none",
     link: "font-bold text-sm outline-none focus:outline-none",
-    contained: `w-full text-white bg-${color}-500 hover:bg-${color}-600 font-bold text-sm px-6 py-3 hover:shadow-md outline-none focus:outline-none`,
-    outlined: `w-full bg-transparent text-${colorWhite} font-bold text-sm px-6 py-3 border-${colorWhite} hover:border-${colorWhite} border-2 hover:shadow-md outline-none focus:outline-none`
+    contained: `text-white bg-${color}-500 hover:bg-${color}-600 font-bold text-sm px-6 py-3 hover:shadow-md outline-none focus:outline-none`,
+    outlined: `bg-transparent text-${colorWhite} font-bold text-sm px-6 py-3 border-${colorWhite} hover:border-${colorWhite} border-2 hover:shadow-md outline-none focus:outline-none`
   };
 
   return (
@@ -37,10 +45,13 @@ const Button = ({
       type={"button"}
       className={classNames(
         btnVariants[variant],
+        btnSizes[size],
         {
           "opacity-50 cursor-not-allowed": isDisabled
         },
-        `rounded-md transition ease-in-out duration-150 ${className}`
+        `${
+          fullWidth ? "w-full" : "w-auto"
+        } rounded-md transition ease-in-out duration-150 ${className}`
       )}
       {...restProps}>
       {icon && <span className="mr-2">{icon}</span>}
@@ -57,13 +68,17 @@ Button.propTypes = {
   icon: PropTypes.node,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  fullWidth: PropTypes.bool
 };
 
 Button.defaultProps = {
+  variant: "contained",
+  color: "mint",
   loading: false,
   disabled: false,
-  size: "medium"
+  size: "medium",
+  fullWidth: false
 };
 
 export default Button;
