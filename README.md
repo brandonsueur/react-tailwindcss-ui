@@ -4,8 +4,10 @@ simple ui components with react.js and tailwindcss. a silly reminder for me as s
 
 ### components produced
 
+- [x] Container
 - [x] Button
 - [x] Input
+- [ ] Dropdown (*soon*)
 
 it's really code that needs to be improved, i didn't try to improve the code.
 
