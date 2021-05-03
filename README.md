@@ -7,6 +7,7 @@ simple ui components with react.js and tailwindcss. a silly reminder for me as s
 - [x] Container
 - [x] Button
 - [x] Input
+- [x] Modal
 - [ ] Dropdown (*soon*)
 
 it's really code that needs to be improved, i didn't try to improve the code.
